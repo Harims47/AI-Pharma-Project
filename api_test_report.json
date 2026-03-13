@@ -1,0 +1,10 @@
+{
+  "login": "success",
+  "patient_id": 9,
+  "supplier_id": 7,
+  "product_id": 6,
+  "purchase": "success",
+  "sale": "success",
+  "token": "success",
+  "final_stock": 9
+}
