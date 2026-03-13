@@ -102,7 +102,7 @@ const TokensPage = () => {
         </div>
       </div>
 
-      <Card className="border-primary/20 bg-primary/5 shadow-none shrink-0 overflow-hidden">
+      <Card className="border-primary/20 bg-primary/5 shadow-none shrink-0 relative z-20">
         <div className="p-4 flex gap-6 items-end">
           <div className="flex-1 space-y-2">
             <label className="text-[10px] font-black uppercase tracking-wider text-primary flex items-center gap-2">

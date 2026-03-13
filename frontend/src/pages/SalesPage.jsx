@@ -166,7 +166,7 @@ const SalesPage = () => {
       </div>
 
       {/* Cart and Checkout Section */}
-      <Card className="w-[450px] border-muted/20 shadow-2xl flex flex-col h-full bg-card overflow-hidden">
+      <Card className="w-[450px] border-muted/20 shadow-2xl flex flex-col h-full bg-card relative z-20">
         <CardHeader className="border-b bg-muted/30 pb-4">
           <CardTitle className="text-lg flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -179,7 +179,7 @@ const SalesPage = () => {
           </CardTitle>
         </CardHeader>
         
-        <CardContent className="flex-1 overflow-auto p-0 custom-scrollbar">
+        <CardContent className="flex-1 overflow-auto p-0 custom-scrollbar relative">
           <div className="p-6 space-y-6">
             <div className="space-y-2">
               <label className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em]">Select Patient</label>
