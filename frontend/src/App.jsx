@@ -8,7 +8,7 @@ import ProductsPage from "./pages/ProductsPage"
 import TokensPage from "./pages/TokensPage"
 import SalesPage from "./pages/SalesPage"
 import SuppliersPage from "./pages/SuppliersPage"
-// Note: Other pages like Suppliers and Purchases can be added similarly
+import PurchasesPage from "./pages/PurchasesPage"
 
 function App() {
   return (
@@ -24,9 +24,7 @@ function App() {
             <Route path="tokens" element={<TokensPage />} />
             <Route path="sales" element={<SalesPage />} />
             <Route path="suppliers" element={<SuppliersPage />} />
-            
-            {/* Fallback routes */}
-            <Route path="purchases" element={<div className="p-8 text-center text-muted-foreground italic">Purchases Module - Coming Soon</div>} />
+            <Route path="purchases" element={<PurchasesPage />} />
           </Route>
         </Routes>
       </AuthProvider>
