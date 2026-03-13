@@ -7,6 +7,7 @@ import {
   tokenService, 
   patientService 
 } from "@/services/api"
+import { SearchableSelect } from "@/components/ui/searchable-select"
 
 const TokensPage = () => {
   const [tokens, setTokens] = useState([])
@@ -107,14 +108,12 @@ const TokensPage = () => {
             <label className="text-[10px] font-black uppercase tracking-wider text-primary flex items-center gap-2">
               <Users size={12} /> Register Patient for Today
             </label>
-            <select 
-              className="w-full h-10 px-4 rounded-xl border border-primary/20 bg-background text-sm shadow-sm hover:border-primary transition-all outline-none"
+            <SearchableSelect
+              options={patients.map(p => ({ value: p.id, label: `${p.name} (${p.phone})` }))}
               value={selectedPatient}
-              onChange={(e) => setSelectedPatient(e.target.value)}
-            >
-              <option value="">-- Choose Patient for New Token --</option>
-              {patients.map(p => <option key={p.id} value={p.id}>{p.name} ({p.phone})</option>)}
-            </select>
+              onChange={setSelectedPatient}
+              placeholder="Search and choose patient for token..."
+            />
           </div>
           <Button onClick={handleGenerateToken} className="gap-2 h-10 px-8 rounded-xl font-bold shadow-lg shadow-primary/20">
             <UserPlus size={18} />

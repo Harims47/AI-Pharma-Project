@@ -12,6 +12,7 @@ import {
   TableRow 
 } from "@/components/ui/table"
 import { patientService, productService, saleService } from "@/services/api"
+import { SearchableSelect } from "@/components/ui/searchable-select"
 
 const SalesPage = () => {
   const [patients, setPatients] = useState([])
@@ -182,14 +183,12 @@ const SalesPage = () => {
           <div className="p-6 space-y-6">
             <div className="space-y-2">
               <label className="text-[10px] font-black text-muted-foreground uppercase tracking-[0.2em]">Select Patient</label>
-              <select 
-                className="w-full h-11 px-4 rounded-xl border border-muted/20 bg-background text-sm shadow-sm focus:ring-2 focus:ring-primary/20 outline-none transition-all"
-                value={selectedPatient}
-                onChange={(e) => setSelectedPatient(e.target.value)}
-              >
-                <option value="">-- Choose Patient --</option>
-                {patients.map(p => <option key={p.id} value={p.id}>{p.name} ({p.phone})</option>)}
-              </select>
+            <SearchableSelect
+              options={patients.map(p => ({ value: p.id, label: `${p.name} (${p.phone})` }))}
+              value={selectedPatient}
+              onChange={setSelectedPatient}
+              placeholder="Search and choose patient..."
+            />
             </div>
 
             <div className="space-y-4">

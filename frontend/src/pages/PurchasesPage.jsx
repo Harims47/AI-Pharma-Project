@@ -19,6 +19,7 @@ import {
   DialogFooter
 } from "@/components/ui/dialog"
 import { supplierService, productService, purchaseService } from "@/services/api"
+import { SearchableSelect } from "@/components/ui/searchable-select"
 
 const PurchasesPage = () => {
   const [purchases, setPurchases] = useState([])
@@ -133,14 +134,12 @@ const PurchasesPage = () => {
               <label className="text-sm font-medium flex items-center gap-2">
                 <User size={14} className="text-primary" /> Supplier
               </label>
-              <select 
-                className="w-full h-10 px-3 rounded-md border border-input bg-background text-sm"
+              <SearchableSelect
+                options={suppliers.map(s => ({ value: s.id, label: s.supplier_name }))}
                 value={selectedSupplier}
-                onChange={(e) => setSelectedSupplier(e.target.value)}
-              >
-                <option value="">-- Select Supplier --</option>
-                {suppliers.map(s => <option key={s.id} value={s.id}>{s.supplier_name}</option>)}
-              </select>
+                onChange={setSelectedSupplier}
+                placeholder="Search and select supplier..."
+              />
             </div>
             <div className="space-y-2">
               <label className="text-sm font-medium flex items-center gap-2">
